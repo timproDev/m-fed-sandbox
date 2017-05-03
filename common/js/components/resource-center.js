@@ -13,6 +13,68 @@ $(document).on('click', function(event) {
 	});
 ;(function( $ ) {
 	$.fn.contentlister = function() {
+		function createFiltersCookie(value,days) {
+            var cookieStr =  readFilterCookie();
+            var jsonArry;
+            if(cookieStr != null && cookieStr != 'undefined'){
+           	 	jsonArry = JSON.parse(cookieStr);
+               	jsonArry = updateJSONArray(jsonArry,value);
+            } else {
+				jsonArry = [];
+                jsonArry.push(value);
+            }
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                var expires = "; expires="+date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = "filters="+ JSON.stringify(jsonArry)+expires+"; path=	/";
+
+		} ;
+		function updateJSONArray(jsonArry,value) {
+			for (var i = 0; i < jsonArry.length; i++) {
+                    var cur = jsonArry[i];
+                    if (cur.path == location.pathname) {
+                        jsonArry.splice(i, 1);
+                        break;
+                    }
+                }
+            if(value!=null && value!=""){
+				jsonArry.push(value);
+            }
+            return jsonArry;
+        }
+		function readFilterCookie() {
+			var nameEQ = "filters=";
+			var ca = document.cookie.split(';');
+			for(var i=0;i < ca.length;i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) {
+                    var str = c.substring(nameEQ.length,c.length);
+                    return str;
+                }
+			}
+			return null;
+		};
+        function readFilters() {
+			var cookieStr =  readFilterCookie();
+            var jsonArry;
+            if(cookieStr != null && cookieStr != 'undefined'){
+           	 	jsonArry = JSON.parse(cookieStr);
+                for (var i = 0; i < jsonArry.length; i++) {
+                    var cur = jsonArry[i];
+                    if (cur.path == location.pathname) {
+						var searchKeyWord = cur.keyword;
+						$(".resource-search").val(searchKeyWord);
+                        return cur.filter;
+                    }
+                }
+            }
+            return "";
+        };
+
 		var _t = this;
         // AEM Analytics
         var filterNumArray = [];
@@ -40,16 +102,17 @@ $(document).on('click', function(event) {
 				console.log("AJAX needs a url. Please provide in #ajaxUrl input tag on page");
 				return;
 			}
-		
 			//initial JSON request
 			var loadCue = $("<span id='loadCue'>" + "</span>");
 			$.ajax({
 				beforeSend: function() {
-					$(".infinite-scroll-container").append(loadCue);					
+					$(".infinite-scroll-container").append(loadCue);
+
 				},
 				url: $ajaxUrl,
 				type: "GET",
-				dataType: "json"
+				dataType: "json",
+				data : readFilters()
 			})
 			.done(function( data ){
 				jsonTemplate( data, function() {
@@ -85,8 +148,8 @@ $(document).on('click', function(event) {
 				$(".resource-search").val("");                
                 // clear the query variable to allow search on repeated value
                 query = "";
-				$ajax(); 
-
+				createFiltersCookie("");
+				$ajax();                
 			});
 			//filter select click handler
 			$(".resource-filter").on("click", ".sub-menu a", function( e ){
@@ -110,6 +173,8 @@ $(document).on('click', function(event) {
 						.text(textSelection);
 				}			
 				getFilters();
+                var jsonObj = {"path" : location.pathname, "filter" : $("#dynamicForm").serialize() , "keyword" : ""};
+				createFiltersCookie(jsonObj);
 				$ajax();
 			});
 			$(".resource-filter").on("click", ".filtered .current-filter a", function( e ){
@@ -117,6 +182,8 @@ $(document).on('click', function(event) {
 				var $self = $(this);
 				$self.parents(".current-filter").addClass("plus").parents(".filter-container").removeClass("filtered");
 				getFilters();
+                var jsonObj = {"path" : location.pathname, "filter" : $("#dynamicForm").serialize() , "keyword" : ""};
+				createFiltersCookie( jsonObj );
 				$ajax();
 			});
 			//Handle submit action of search field
@@ -131,6 +198,8 @@ $(document).on('click', function(event) {
 					return false;
 				} else {
 					getFilters();
+					var jsonObj = {"path" : location.pathname, "filter" : $("#dynamicForm").serialize() , "keyword" : $(".resource-search").val()};
+					createFiltersCookie(jsonObj);
 					$ajax();
 					complete = false;
 					query = $(".resource-search").val();                    
@@ -152,7 +221,7 @@ $(document).on('click', function(event) {
 						$(".has-sub.open, .sub-menu.open").removeClass("open");
 						//$("#loadingCue").show();                        
 						$(".infinite-scroll-container").append(loadCue);
-						$(".request-overlay").show();						
+						$(".request-overlay").show();
 					},
 					url: $ajaxUrl,
 					type: "GET",
@@ -160,7 +229,7 @@ $(document).on('click', function(event) {
 					dataType: "json",
 					data: $("#dynamicForm").serialize()
 				})
-				.done(function( data ){	
+				.done(function( data ){		
 					//console.log(data.href);						
                     jsonTemplate( data, function() {
 						_t.infinitescroll().loadItems();

@@ -37,7 +37,8 @@
 				messages: {					
 					required: $("#requiredAlert").data("message") || jQuery.validator.messages.required,
 					first_name: $("#firstNameAlert").data("message") || jQuery.validator.messages.required,
-		            last_name: $("#lastNameAlert").data("message") || jQuery.validator.messages.required,		            
+		            last_name: $("#lastNameAlert").data("message") || jQuery.validator.messages.required,
+		            captcha: $("#captchaAlert").data("message") || jQuery.validator.messages.required
 				},
 				errorClass: "error-flag",
 				ignore: "",
@@ -61,7 +62,7 @@
 				var $form = $(this),
 				 	$formWrapper = $(".subscription-center-form"),
 					$submit = $formWrapper.find("#subscriptionButton"),
-					$confirmMess = $formWrapper.find(".f-conf-mess.f-hide"),
+					$confirmMess = $formWrapper.find(".f-client-msg.f-hide"),
 					inputVals = $form.serialize(),
 					formUrl = $form.attr('action');
 
@@ -75,13 +76,19 @@
 						setTimeout(function(){							
 							$confirmMess.slideDown().removeClass("f-hide");
 						}, 1500);
-						console.log(inputVals);
+						console.log(inputVals);						
 					})
-				.error(function(){console.error('Unsuccessful submission');})
+				.error(
+					function(){
+						console.error('Unsuccessful submission - did not work');
+						// show hide error message
+						console.log('oh! nope, didnt work');
+					})
 				.done(function(){});
 			});
 	    },
 	    postProfile: function(el){
+	    	var self = this;
 		    //START Subscription Center Profile
 		    $("#subcenterProfile").validate({				
 				rules: {
@@ -127,19 +134,28 @@
 				var $form = $(this),
 					$formWrapper = $(".subscription-center-form"),
 					inputVals = $form.serialize(),
-					$confirmMess = $form.find('.f-conf-mess.f-hide'),
+					$confirmMess = $form.find('.f-client-msg.confirm.f-hide'),
+					$invalidMess = $form.find('.f-client-msg.invalid.f-hide'),
 					formUrl = $form.attr('action'),
 					$submit = $formWrapper.find("#subscriptionButton");
 				
 				$.post(formUrl, inputVals)				
 				.success(function(){
 					// animate the confirmation sequence					
-					$confirmMess.slideDown('slow');
+					$confirmMess.slideDown('fast');
 					setTimeout(function(){
 						$confirmMess.slideUp('fast');
 					}, 4000);
 				})
-				.error(function(){console.error('Unsuccessful submission');})
+				.error(
+					function(){
+						console.error('Unsuccessful submission - did not work');
+						// show hide error message
+						$invalidMess.slideDown('fast');
+						setTimeout(function(){
+							$invalidMess.slideUp('fast');
+						}, 4000);
+					})
 				.done(function(){					
 					$submit.addClass("disabled");
 					$submit.prop('disabled', true);

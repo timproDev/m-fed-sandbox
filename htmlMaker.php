@@ -1,6 +1,6 @@
 <?php  
 $pages = array	(	                
-                "component-sandbox.html"
+                "home.html"
 				);
 $urls = array();
 $i = 0;

@@ -80,6 +80,10 @@ $(document).ready(function(e) {
         	});
         }
     });
+	
+	// client credentials is part of subscription center
+	// removed: $(".login-box, .client-credentials").popper({
+
 	$(".login-box").popper({
          customClone: ".login-box-modal",
          altClass: "alt-modal right-rail-login",
@@ -331,7 +335,10 @@ $(document).ready(function(e) {
 			},*/
 			captcha: {
 				captchaCheck: true
-			}
+			},
+	            policies_check: {
+					required: true,
+	            }
 		},
 		messages: {
 			required: $("#requiredAlert").data("message") || jQuery.validator.messages.required,
@@ -363,7 +370,8 @@ $(document).ready(function(e) {
 			help_description: $("#helpAlert").data("message") || jQuery.validator.messages.required,
 			temp_password: $("#tempPassRequired").data("message") || jQuery.validator.messages.required,
 			captcha: $("#captchaAlert").data("message") || jQuery.validator.messages.required,
-			relationship: $("#relationshipRequired").data("message") || jQuery.validator.messages.required
+			relationship: $("#relationshipRequired").data("message") || jQuery.validator.messages.required,
+        	policies_check: $("#policiesRequired").data("message") || jQuery.validator.messages.required
 		},
 		errorClass: "error-flag",
 		ignore: "",
@@ -400,7 +408,10 @@ $(document).ready(function(e) {
 			},
             captcha: {
 				captchaCheck: true
-			}
+			},
+			policies_check: {
+					required: true,
+	        }
 		},
 		messages: {
 			FirstName: $("#firstNameAlert").data("message") || jQuery.validator.messages.required,
@@ -413,10 +424,11 @@ $(document).ready(function(e) {
             CompanyName: $("#companynameRequired").data("message") || jQuery.validator.messages.required,
             Country: $("#lastNameAlert").data("message") || jQuery.validator.messages.required,
             Request: $("#helpAlert").data("message") || jQuery.validator.messages.required,
-            captcha: $("#captchaAlert").data("message") || jQuery.validator.messages.required
+            captcha: $("#captchaAlert").data("message") || jQuery.validator.messages.required,
+        	policies_check: $("#policiesRequired").data("message") || jQuery.validator.messages.required
 		},
 		errorClass: "error-flag",
-		//ignore: "",
+		ignore: "",
 		onkeyup: false,
 		onfocusout: function(element) {
 			$(element).valid();
@@ -546,7 +558,6 @@ $(document).ready(function(e) {
         },
 		errorClass: "error-flag"
     });
-
 	$(".blog-wrap").infinitescroll();
 	$("#tweetList").tickertweet();
 	$("#countrySelection").formswitch();

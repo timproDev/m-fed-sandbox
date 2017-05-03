@@ -40,10 +40,29 @@ function optinModal(req, expDays) {
                 submitHandler: function(){
                     deleteOptCookie("optinSettingType");
                     var radioVal = $('input[name="settingType"]:checked').val();
-                        radioVal = radioVal.toString();
-                        setOptCookie("optinSettingType", radioVal, "","");
+                    if(radioVal < 200) {
+                        setOptCookie("disableAA", "true", "/", "");
+                    }
+                    radioVal = radioVal.toString();
+                    setOptCookie("optinSettingType", radioVal, "/","");
+
                     currentCookie = radioVal;
                     cookieDependencies();
+                    var pageC = $('#pageC').val();
+                    if (pageC != undefined && pageC != "") {    
+                    
+                        var url = pageC + ".cookiepolicy.json?nocache=nocache";
+                        $.ajax({
+                            type : 'GET',
+                            url : url,
+                            success : function(data) {
+                                console.log('ajax call success');
+                            },
+                            error : function() {
+                                console.log('Error while executing ajax call');
+                            }
+                        });
+                    }
                 }
             });
             showMore();            
@@ -163,7 +182,7 @@ function optinModal(req, expDays) {
         if (cookieExpires == "") {
             var currentDate = new Date();
             if (expDays !== undefined) {
-                currentDate.setDate(currentDate.getDate() + expDays);
+                currentDate.setDate(currentDate.getDate() + parseInt(expDays,10));
                 cookieExpires = currentDate.toUTCString();
             } else {
                 cookieExpires = "";

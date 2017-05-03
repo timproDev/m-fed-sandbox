@@ -20,18 +20,18 @@
 	$.fn.formswitch = function( options ) {
 		var _t = this;
 		return _t.each(function(){
-			var selectTag 	= $("#regionSelect").clone();
+			var selectTag 	= $("#region").clone();
 			$canRegion 	= $("#canadaRegion");
 			var canSelect = $canRegion.clone();
 			$canRegion.remove();
 			_t.change(function(){
 				var options 	= document.getElementById("countrySelection").options,
 					optionId	= options[options.selectedIndex].id,
-					$region 	= $("#regionSelect, #canadaRegion"),
+					$region 	= $("#region, #canadaRegion"),
 					$regionName = $region.attr("name"),
 					inputTag 	= $("<input>", {
 									type: "text",
-									id: "regionSelect",
+									id: "region",
 									name: $regionName,
 									value: ""
 								  });
@@ -44,7 +44,7 @@
 				} else {
 					$region.replaceWith(inputTag);
 					$("#regions label span").hide();
-					$("#regionSelect").valid();
+					$("#region").valid();
 				}
 				if ($("#regions label.error-flag").length || $("#regions select.error-flag").length) {
 					$("#regions label.error-flag").remove();

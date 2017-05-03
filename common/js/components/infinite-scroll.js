@@ -18,7 +18,7 @@
 			loadCue = $("<span id='loadCue'>" + "</span>"),
 			hrefRequest;
 		
-		_t.loadItems = function() {			
+		_t.loadItems = function() {	
 			if(!$("#loadCue").length){
 				$(".infinite-scroll-container").append(loadCue);
 			}
@@ -33,14 +33,13 @@
 		    })
 		    .done(function(html){
 		    	//$("#loadingCue").hide("1000");
-		    	// console.log("fired");
 		    	$("#loadCue").remove();
 				$( ".infinite-scroll-container" )
 					.append( $( html )
 					.find( target ).fadeIn(1500)
 				);
 				//add new link if available
-				if($( html ).find("#nextPage").length !== 0) {					
+				if($( html ).find("#nextPage").length !== 0) {
 					$nextPage.attr("href", $( html ).find("#nextPage").attr("href"));
 					state = true;
 				} else {
@@ -62,7 +61,6 @@
 				scrollPosY = $(window).scrollTop() + $("footer").height();
 				topOffset = $(document).height() - $(window).height();
 				if(topOffset <= scrollPosY && state === true) {
-					console.log("fired");
 					state = false;
 					_t.loadItems();
 				}
