@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--<meta name="format-detection" content="telephone=no">-->
     <title>Sandbox</title>
-    <link rel="shortcut icon" href="common/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="common/stylesheets/third-party/slick.css"/> 
-    <link rel="stylesheet" href="common/stylesheets/third-party/datetimepicker.css"/> 
+    <link rel="icon" href="common/images/favicon.ico?v=2" />
     <link rel="stylesheet" href="common/stylesheets/app.css"/>	 
     <link rel="stylesheet" href="common/stylesheets/ie.css"/>	 
     <!--[if lt IE 9]>
@@ -20,32 +18,10 @@
         <link rel="stylesheet" href="common/stylesheets/ie-9.css" type="text/css">
     <![endif]-->
   <script type="text/javascript" src="common/js/third-party/modernizr/modernizr.js"></script>
-      
   <!-- Inject fonts -->
   <link rel="stylesheet" href="common/stylesheets/fonts-slate.css"/>
-
-  </head>
-    <div class="browser-comp-alert">   
-    <div class="wrap">
-        <h5>You are using an outdated browser that is not supported by Marsh.com.</h5>
-        <p>For the best experience, please upgrade to a supported browser:</p>
-        <ul>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank"><img src="/images/ie-alert-icn.png" />Internet Explorer 9+</a>
-            </li>
-            <li>
-                <a href="https://support.mozilla.org/en-US/kb/update-firefox-latest-version" target="_blank"><img src="/images/moz-alert-icn.png" />Firefox 33+</a>
-            </li>
-            <li>
-                <a href="https://www.google.com/chrome/browser/desktop/" target="_blank"><img src="/images/chrome-alert-icn.png" />Chrome 38+</a>
-            </li>
-            <li class="not-show">
-                <a id="cancelAlert" href="">Do not show again</a>
-            </li>
-        </ul>
-        <span id="closeAlert">X</span>
-    </div>
-</div> 
+  </head>    
+ 
 
 	<body>
 		<main>
@@ -122,14 +98,7 @@
             accordionComp(); 
         })(jQuery);
     });
-</script>			<!-- <div class="component modification theme">
-			<div class="component-inner">
-			<div class="component-bdy">
-			.. code here ...
-			</div>
-			</div>	
-			</div> -->
-		</main>    
+</script>		</main>    
 	    <!--[if gte IE 9]><!-->
     <script type="text/javascript" src="common/js/third-party/jquery/jquery.js"></script>
     <!--<![endif]-->
@@ -143,263 +112,7 @@
     
     <script type="text/javascript" src="common/js/third-party/foundation/foundation.js"></script>
     <script type="text/javascript" src="common/js/third-party/foundation/foundation.interchange.js"></script>
-    <!-- 
-        Add all js components here needed and then initialize in app.js. 
-        Add all new components in the js/components path. In CQ they will be joined through clientLibs
-    -->
-    <script type="text/javascript" src="common/js/components/flyout-login.js"></script>
-    <script type="text/javascript" src="common/js/components/infinite-scroll.js"></script>
-    <script type="text/javascript" src="common/js/components/twitter-list.js"></script>
-    <script type="text/javascript" src="common/js/components/utility-nav.js"></script>
-    <script type="text/javascript" src="common/js/components/global-drop.js"></script>  
-    <script type="text/javascript" src="common/js/components/main-nav-drop.js"></script>
-    <script type="text/javascript" src="common/js/components/info-accordion.js"></script> 
-    <script type="text/javascript" src="common/js/components/filters.js"></script> 
-    <script type="text/javascript" src="common/js/components/popper-modal.js"></script> 
-    <script type="text/javascript" src="common/js/components/resource-center.js"></script>
-    <script type="text/javascript" src="common/js/components/timer-calc.js"></script>
-    <script type="text/javascript" src="common/js/components/forms.js"></script>
-    <script type="text/javascript" src="common/js/components/office-locator.js"></script>
-    <script type="text/javascript" src="common/js/components/cookie-jar.js"></script>
-    <script type="text/javascript" src="common/js/components/search-drop.js"></script>
-    <script type="text/javascript" src="common/js/components/marshClientContext.js"></script>
-    <script type="text/javascript" src="common/js/components/browser-sniffer.js"></script>    
-    <script type="text/javascript" src="common/js/components/captcha-config.js"></script>
-    <script type="text/javascript" src="common/js/components/opt-in-cookie-policy.js"></script>
-
-    <!-- Third Party Carousel Script **Slick** -->
-    <script type="text/javascript" src="common/js/third-party/slick/slick.js"></script>
-    <script type="text/javascript" src="common/js/components/slick-config.js"></script>
-    <!-- Third Party -->
-    <script type="text/javascript" src="common/js/third-party/jquery-timer/jquery.timer.js"></script>
-    <script type="text/javascript" src="common/js/third-party/datepicker/jquery.datetimepicker.js"></script>
-    <script type="text/javascript" src="common/js/third-party/datepicker/dateparseandformat.js"></script>
-    <script type="text/javascript" src="common/js/third-party/jquery.dotdotdot.js"></script>
-    <script type="text/javascript" src="common/js/third-party/jquery-validate/jquery.validate.js"></script>
-    <script type="text/javascript" src="common/js/third-party/social.js"></script>
-    <!--Google Recaptcha-->
-
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
     
     <script type="text/javascript" src="common/js/app.js"></script>
-    
-    <!-- Inserting Modal window as a global component -->
-    <div id="modalWindow" class="reveal-modal"></div>
-<!--div id="subModal" class="reveal-modal" data-reveal></div-->    <div class="login-box-modal modal">   
-    <div class="generic-form">
-        <div>
-            <form action="" class="form-structure" id="logInModal">
-
-                 <div class="row">
-                    <div class="large-10 medium-10 small-12 small-centered columns">
-                        <h2>Login to Marsh.com</h2>
-                        <p class="sub-head">Login to read our last premium content</p>
-                        <p>Please enter your email address and password to access the full marsh.com. If you don't know your password, just click the <a href="">forget password</a> link. If you are looking for other Marsh.com sites, <a href="">click here</a>.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-10 medium-10 small-12 small-centered columns">
-                        <label for="emailAddress">Email Address<span>*</span></label>
-                        <input class="dynamic-input" type="text" name="username" id="emailAddress" required>
-                    	<input type="hidden" id="usernameRequired" data-message="" disabled="disabled">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-10 medium-10 small-12 small-centered columns">
-                        <label for="logPassword">Password<span>*</span></label>
-                        <input class="dynamic-input" type="password" name="log_password" id="logPassword" required>
-                        <input type="hidden" id="passwordRequired" data-message="" disabled="disabled">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-10 medium-10 small-12 small-centered columns">                    
-                        <div class="rememberuser">
-                            <!-- <input type="checkbox" name="rememberuser" value="rememberuser"><p>Remember my username</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-10 medium-10 small-12 small-centered columns">
-                        <input class="submit-button arrow-right disabled" id="loginButton" name="loginButton" type="submit" value="LOGIN">                                 
-                        <div class="options"><a href="#">Forget Password?</a><a href="#">Register</a></div>
-                        <p><span>*</span>Required</p>
-                    </div>
-                </div>
-            </form>        
-        </div>
-    </div>
-    
-</div>    
-
-<!-- END | RR3 - Login -->
-
-    <!-- START | Opt-in Modal - In Cookie Policy -->
-
-<div class="opt-in-modal modal">
-    <div class="form-cntr">        
-        <form method="post" action="#" id="optInModal" class="form-structure">                
-            <div class="description">
-                <h3>Cookie Policy Modal Title</h3>
-                <div class="text-wrap">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<!--
-                    <p>Cookie Policy Description</p>
-                    <p>Cookie Policy User Direction</p>
-                    <p>Additional Text</p>
--->
-                    <p><a href="">Find out more about cookies.</a></p>
-                </div>
-            </div>
-            <div class="options">
-                <div class="radioInputlist">
-                    <h4>Cookie Selection Radio Label</h4>
-                    <ul>
-                        <li>
-                            <input id="necessaryInput" type="radio" name="settingType" value="100">
-                            <label for="necessaryInput">Strictly necessary</label>
-                        </li>
-                        <li>
-                            <input id="performantInput" type="radio" name="settingType" value="200">
-                            <label for="performantInput">Performant</label>
-                        </li>
-                        <li>
-                            <input id="functionalInput" type="radio" name="settingType" value="300" checked="checked">
-                            <label for="functionalInput">Functional</label>              
-                        </li>      
-                    </ul>                    
-                </div>
-                <div class="option-details">
-                    <h4>The Website will:</h4>
-                    <ul id="necessaryInputlist">
-                        <li>Use cookies that are absolutely necessary for the website</li>
-                        <li>Use the Google Analytics tracking cookie</li>
-                        <li>Uses AA Batteries</li>
-                    </ul>
-                    <ul id="performantInputlist">
-                        <li>Use cookies that are absolutely necessary for the website</li>
-                        <li>Use cookie to pick up your location</li>
-                        <li>Use the Google Analytics tracking cookie</li>
-                        <li>Use the Google Analytics tracking cookie</li>
-                        <li>Uses AA Batteries</li>
-                    </ul>
-                    <ul id="functionalInputlist">
-                        <li>Use cookies that are absolutely necessary for the website</li>
-                        <li>Use cookie to pick up your location</li>
-                        <li>Use the Google Analytics tracking cookie</li>
-                        <li>Uses AA Batteries</li>
-                        <li>Use cookies that are absolutely necessary for the website</li>
-                        <li>Use cookie to pick up your location</li>
-                        <li>Use the Google Analytics tracking cookie</li>
-                        <li>Uses AA Batteries</li>
-                    </ul>
-                    <div class="btn-wrap">                                        
-                        <input class="submit-button status-icon" type="submit" value="Save and Close">
-                        <p class="status-icon">Cancel</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="cookieDetails">
-                <div class="details-wrap">
-                <div class="view-details"><span>Cookie Details</span></div>
-                <ul>
-                    <li>
-                        <div>
-                            <h5>Cookie details</h5>
-                            <dl>
-                                <dt>Category</dt><dd>Performant</dd>
-                                <dt>Cookie name</dt><dd>_ga</dd>
-                                <dt>Host</dt><dd>null </dd>
-                                <dt>Domain</dt><dd>mercer.com</dd>
-                                <dt>Remark</dt><dd>Google analytics cookie Geo locator cookie Geo locator cookie Geo locator cookie Geo locator cookie Geo locator cookie</dd>
-                                <dt>Expiration</dt><dd>After 2 years</dd>
-                            </dl>
-                        </div>
-                        <div>
-                            <hr>
-                            <h5>Description Label</h5>
-                            <p>Description Text</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h5>Cookie details</h5>
-                            <dl>
-                                <dt>Category</dt><dd>Strictly necessary</dd>
-                                <dt>Cookie name</dt><dd>geoLocatorCookie</dd>
-                                <dt>Host</dt><dd></dd>
-                                <dt>Domain</dt><dd>mercer.com</dd>
-                                <dt>Remark</dt><dd>Geo locator cookie</dd>
-                                <dt>Expiration</dt><dd>At the end of the session</dd>
-                            </dl>
-                        </div>
-                        <div>
-                            <hr>
-                            <h5>Description Label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h5>Cookie details</h5>
-                            <dl>
-                                <dt>Category</dt><dd>Strictly necessary</dd>
-                                <dt>Cookie name</dt><dd>AKSB</dd>
-                                <dt>Host</dt><dd>null </dd>
-                                <dt>Domain</dt><dd>mercer.com</dd>
-                                <dt>Remark</dt><dd>RUM cookie</dd>
-                                <dt>Expiration</dt><dd>At the end of the session</dd>
-                            </dl>
-                        </div>
-                        <div>
-                            <hr>
-                            <h5>Description Label</h5>
-                            <p>Description Text</p>
-                        </div>
-                    </li>
-                    <li>        
-                        <div>
-                            <h5>Cookie details</h5>
-                            <dl>
-                                <dt>Category</dt><dd>Strictly necessary</dd>
-                                <dt>Cookie name</dt><dd>customLoginToken</dd>
-                                <dt>Host</dt><dd>null </dd>
-                                <dt>Domain</dt><dd>mercer.com</dd>
-                                <dt>Remark</dt><dd>Login cookie</dd>
-                                <dt>Expiration</dt><dd>At the end of the session</dd>
-                            </dl>
-                        </div>
-                        <div>
-                            <hr>
-                            <h5>Description Label</h5>
-                            <p>Description Text</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="details-txt">
-                    <p>Further reading information about cookies, useful information about cookies can be found at:<br><a href="http://www.allaboutcookies.org/">http://www.allaboutcookies.org</a>Further reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found atFurther reading information about cookies, useful information about cookies can be found at end of line!</p>
-                </div>
-                </div>
-            </div>
-        </form>        
-    </div>
-</div>
-
-<!-- END | Opt-in Modal - In Cookie Policy -->
-    	</body>
+	</body>
 </html>
