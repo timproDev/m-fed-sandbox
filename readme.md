@@ -2,6 +2,8 @@
 
 Trying out new approaches to components and template front end design
 
+Launch [demo](https://timprodev.github.io/m-fed-sandbox/ "Accordion Component Demo")
+
 ## Accordion Component
 
 With the accordion component, I am exploring ways to refine the html structure for potential reuse. Additionally, I am looking to engineer the components so that a theme modification class will empower design to apply presentation/brand variance for the component.
