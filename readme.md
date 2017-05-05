@@ -4,6 +4,45 @@ Trying out new approaches to components and template front end design
 
 Launch [demo](https://timprodev.github.io/m-fed-sandbox/ "Accordion Component Demo")
 
+
+[Accordion Component][]
+[Component Structure][]
+[SASS Structure][]
+[Javascript][]
+
+## CSS Methodology Working Project
+A CSS methodology helps to solve for cleaner code (less redundancy and smaller files) and better maintainability (ease of use and scalability). This encompasses semantic class naming and a model for files structure. Our approach infuses information gathered from BEM, SMACSS and OOCSS. This is the beginning of a modular-based system to organize templates patterns, css structure and html component patterns.
+
+Class names should be independent of it’s content. For example,
+```html
+<div class=“news-feed”></div>
+```
+This is the not the recommended approach. Likewise, minimize the use of location-centric semantics, such as
+```html
+<img class=“right-rail-top”>
+```
+There are no hard rules as of yet around interpreting and establishing the correct naming approach. We just need to use our best judgement as well as invite collaboration and encourage a shared vocabulary. Link [https://css-tricks.com/semantic-class-names/]
+
+The overall file model is structured as Block, State, Modification and Theme.
+
+> B(block):
+> This is where the fundamental construction of the component is styled. This includes layout from a wireframe standpoint. No actions or behavior and no colors or aesthetics.
+>
+>S(State):
+>This is to account for pseudo classes such as :hover and attributes such as disabled. It also houses dependent classes that are manipulated through js, such as is.active. 
+>
+>M(Modification):
+>This is strictly a sub class of the Block class and is meant to control/override positioning and layout styles. If a bio component needs to layout differently in different locations of the page, this is where those styles are controlled.
+>
+>T(Theme):
+>This is where all the elements of design are controlled, such as spacing (padding and margin), color, scale, typography and brand.
+
+We are also minimizing the use of html tags. Using html tags in css increase the possibility for conflicts having to do with specificity, where multiple unique classes might overlap and override each other without intention.
+
+We also aim for minimizing the use of sub-class hierarchies to limit the processing power required to parse the css. However, we do incorporate sub-classes for themeing and modifications.
+
+Likewise, we are exploring the use of the SASS function @at-root. In minimizing processing time, each class is an extension of the component name but compiled at the root level of the CSS file (as opposed to nested as sub-classes).
+
 ## Accordion Component
 
 With the accordion component, I am exploring ways to refine the html structure for potential reuse. Additionally, I am looking to engineer the components so that a theme modification class will empower design to apply presentation/brand variance for the component.
