@@ -4,14 +4,6 @@ Trying out new approaches to components and template front end design
 
 Launch [demo](https://timprodev.github.io/m-fed-sandbox/ "Accordion Component Demo")
 
-[Accordion Component]()
-
-[Component Structure]()
-
-[SASS Structure]()
-
-[Javascript]()
-
 ## CSS Methodology Working Project
 A CSS methodology helps to solve for cleaner code (less redundancy and smaller files) and better maintainability (ease of use and scalability). This encompasses semantic class naming and a model for files structure. Our approach infuses information gathered from BEM, SMACSS and OOCSS. This is the beginning of a modular-based system to organize templates patterns, css structure and html component patterns.
 
