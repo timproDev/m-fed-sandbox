@@ -19,16 +19,16 @@ There are no hard rules as of yet around interpreting and establishing the corre
 
 The overall file model is structured as Block, State, Modification and Theme.
 
-> B(block):
+> __B(block):__
 > This is where the fundamental construction of the component is styled. This includes layout from a wireframe standpoint. No actions or behavior and no colors or aesthetics.
 >
->S(State):
+> __S(State):__
 >This is to account for pseudo classes such as :hover and attributes such as disabled. It also houses dependent classes that are manipulated through js, such as is.active. 
 >
->M(Modification):
+> __M(Modification):__
 >This is strictly a sub class of the Block class and is meant to control/override positioning and layout styles. If a bio component needs to layout differently in different locations of the page, this is where those styles are controlled.
 >
->T(Theme):
+> __T(Theme):__
 >This is where all the elements of design are controlled, such as spacing (padding and margin), color, scale, typography and brand.
 
 We are also minimizing the use of html tags. Using html tags in css increase the possibility for conflicts having to do with specificity, where multiple unique classes might overlap and override each other without intention.
