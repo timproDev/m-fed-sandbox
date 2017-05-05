@@ -5,10 +5,10 @@ Trying out new approaches to components and template front end design
 Launch [demo](https://timprodev.github.io/m-fed-sandbox/ "Accordion Component Demo")
 
 
-[Accordion Component][]
-[Component Structure][]
-[SASS Structure][]
-[Javascript][]
+[Accordion Component]()
+[Component Structure]()
+[SASS Structure]()
+[Javascript]()
 
 ## CSS Methodology Working Project
 A CSS methodology helps to solve for cleaner code (less redundancy and smaller files) and better maintainability (ease of use and scalability). This encompasses semantic class naming and a model for files structure. Our approach infuses information gathered from BEM, SMACSS and OOCSS. This is the beginning of a modular-based system to organize templates patterns, css structure and html component patterns.
@@ -21,7 +21,7 @@ This is the not the recommended approach. Likewise, minimize the use of location
 ```html
 <img class=“right-rail-top”>
 ```
-There are no hard rules as of yet around interpreting and establishing the correct naming approach. We just need to use our best judgement as well as invite collaboration and encourage a shared vocabulary. Link [https://css-tricks.com/semantic-class-names/]
+There are no hard rules as of yet around interpreting and establishing the correct naming approach. We just need to use our best judgement as well as invite collaboration and encourage a shared vocabulary. [Ref Link](https://css-tricks.com/semantic-class-names/)
 
 The overall file model is structured as Block, State, Modification and Theme.
 
