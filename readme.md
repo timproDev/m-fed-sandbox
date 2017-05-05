@@ -4,10 +4,12 @@ Trying out new approaches to components and template front end design
 
 Launch [demo](https://timprodev.github.io/m-fed-sandbox/ "Accordion Component Demo")
 
-
 [Accordion Component]()
+
 [Component Structure]()
+
 [SASS Structure]()
+
 [Javascript]()
 
 ## CSS Methodology Working Project
